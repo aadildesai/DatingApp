@@ -25,6 +25,9 @@ import { AuthGuard } from './_guards/auth.guard';
 import { UserService } from './_services/user.service';
 import { MemberListResolver } from './_resolvers/member-list.resolver';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { MemberEditResolver } from './_resolvers/member-edit.resolver';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 
 
 export function tokenGetter()
@@ -42,7 +45,8 @@ export function tokenGetter()
       MemberCardComponent,
       MemberDetailComponent,
       ListsComponent,
-      MessagesComponent
+      MessagesComponent,
+      MemberEditComponent
    ],
    imports: [
       BrowserModule,
@@ -68,7 +72,9 @@ export function tokenGetter()
       AuthGuard,
       UserService,
       MemberDetailResolver,
-      MemberListResolver
+      MemberListResolver,
+      MemberEditResolver,
+      PreventUnsavedChanges
    ],
    bootstrap: [
       AppComponent
